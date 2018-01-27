@@ -100,8 +100,6 @@ def index():
             iqr = q3 - q1
             upper= q3 + 1.5*iqr
             lower = q1 - 1.5*iqr
-            upper = df['q0']
-            lower = df['q100']
             count=df['count'].values
             ylim=max(count)*1.1
 
@@ -124,7 +122,7 @@ def index():
             p.grid.grid_line_width = 2
             p.xaxis.major_label_text_font_size="12pt"
             p.left[0].formatter.use_scientific = False
-            p.y_range = Range1d(0, max(upper)*1.1)
+            #p.y_range = Range1d(0, max(upper)*1.1)
 
             p.extra_y_ranges = {"foo": Range1d(start=0, end=ylim)}
             p.add_layout(LinearAxis(y_range_name="foo", axis_label="Petition Number"), 'right')
